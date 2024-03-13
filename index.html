@@ -1,0 +1,36 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pac-Man</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <button
+      id="play"
+      onClick="document.getElementById('play').style.display = 'none'; document.getElementById('h2bestScore').style.display = 'block'; document.getElementById('footer').style.display = 'none'; document.getElementById('mobile').style.display = 'none'"
+    >
+      Cliquer ici pour jouer
+    </button>
+    <span data-tilt><img src="/assets/logo.png" alt="Logo Pac-Man" id="logo" /></span>
+    <span data-tilt> <h2>Score : <span id="score">0</span></h2></span>
+    <h2 id="h2bestScore" style="display: none">
+      Votre meilleur score : <span id="bestScore">0</span>
+    </h2><span data-tilt>
+    <p id="computer">
+      Utiliser <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> pour vous
+      déplacer
+    </p></span>
+    <p id="mobile">Swipe <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> pour vous déplacer</p>
+    <div class="grid"></div>
+    <footer id="footer">SpliiT Dev - Pac-Man - 2024</footer>
+  </body>
+  <script src="tilt.jquery.js"></script>
+  <script src="script.js"></script>
+</html>

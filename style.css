@@ -1,0 +1,347 @@
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: #0a0743;
+	font-family: 'Bungee', cursive;
+    overflow-y: hidden;
+	user-select: none;
+}
+
+#logo{
+	width: 450px;
+}
+
+h2{
+	margin: -30px auto 5px auto;
+	color: rgb(246, 184, 30);
+	font-size: 28px;
+	font-weight: lighter;
+	text-transform: uppercase;
+	text-shadow: 1.5px 1.5px 0 rgba(239,0,0,1.00);;
+}
+
+#computer{
+	margin-bottom: 35px;
+	color: rgb(246, 184, 30);
+	font-size: 20px;
+	font-weight: lighter;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 0 rgba(239,0,0,1.00);
+}
+#mobile{
+	display: none;
+}
+
+kbd{
+	font-size: 25px;
+	padding: 5px;
+}
+
+#play{
+	position: absolute;
+	margin-top: 80px;
+	padding: 15px 25px;
+	color: rgba(10,7,67,1.00);
+	font-family: 'Bungee', cursive;
+	font-size: 30px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	background-color: rgb(246, 184, 30);
+	border: 2px solid rgba(239,0,0,1.00);
+	z-index: 100;
+	cursor: pointer;
+}
+
+.grid{
+	display: flex;
+	flex-wrap: wrap;
+	width: 560px;
+	height: 560px;
+	margin-bottom: 80px;
+}
+
+.grid div{
+	width : 20px;
+	height: 20px;
+}
+
+.pac-dot {
+	background-color: rgba(247,191,80,1.00);
+	border: 7px solid rgba(10,7,67,1.00);
+	border-radius: 10px;
+	box-sizing: border-box;
+}
+
+.mur{
+	background-color: darkblue;
+}
+
+.framboise{
+    content: url(assets/framboise.svg);
+    background-color: transparent;
+}
+
+
+.blinky{
+    content: url(assets/ghost.png);
+	filter: contrast(150%);
+	border:0;
+	border-radius: 0 ;
+	transform: rotate(0deg) ;
+	background-color: transparent ;
+}
+
+.pinky{
+    content: url(assets/ghost.png);
+    filter: hue-rotate(-40deg) brightness(200%);
+	border:0;
+	background-color: transparent ;
+	border-radius: 0 ;
+	transform: rotate(0deg) ;
+}
+
+.inky{
+    content: url(assets/ghost.png);
+	filter: hue-rotate(-190deg) brightness(180%);
+	border:0;
+	background-color: transparent ;
+	border-radius: 0 ;
+	transform: rotate(0deg) ;
+}
+
+.clyde{
+    content: url(assets/ghost.png);
+	filter: hue-rotate(35deg) brightness(170%);
+	border:0;
+	background-color: transparent ;
+	border-radius: 0 ;
+	transform: rotate(0deg) ;
+}
+
+.scared-ghost{
+	content: url("assets/scared-ghost.png");
+	border:0;
+	border-radius: 0;
+	background-color: transparent;
+}
+
+.pac-man{
+	background-color: yellow;
+	border-radius: 10px;
+	border: none;
+	transform: rotate(115deg);
+}
+
+.pac-man::before, .pac-man::after{
+	position: absolute;
+	content:"";
+	display: block;
+	width: 10px;
+	height: 10px;
+}
+.pac-man::before{
+	border-radius : 50px 0 0 0;
+	background-color: rgba(10,7,67,1.00);
+	border-color: rgba(10,7,67,1.00);
+}
+.pac-man::after{
+	border-radius : 50px 0 0 0 ;
+	background-color: yellow;
+	transform-origin: bottom right;
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+	-webkit-animation: eat .5s infinite;
+	animation: eat .5s infinite;
+	background-image: url(assets/background.png);
+	background-size: 40%;
+	background-repeat: no-repeat;
+	background-position: center
+}
+
+@-webkit-keyframes eat{
+	0% {
+		-webkit-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+	}
+	25% {
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+	}
+	50% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	75% {
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+	}
+	100% {
+		-webkit-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+	}
+}
+@keyframes eat{
+	0%{
+		transform: rotate(-90deg);
+	}
+	50%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(-90deg);
+	}
+}
+
+
+.gameOver, .won{
+	position: absolute;
+	margin-top: 80px ;
+	width: 396px;
+	height: 100px;
+	border : 2px solid rgba(239,0,0,1.00);
+	text-shadow: 1px 1px 0 rgba(239,0,0,1.00);
+	background-color: rgb(246, 184, 30);
+	color: rgba(10,7,67,1.00);
+	font-size: 40px;
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+}
+
+.gameOver::after{
+	content: "GAME OVER";
+	position: absolute;
+}
+
+.won::after{
+	content: "YOU WON !";
+	position: absolute;
+}
+
+.rejouer{
+	position: absolute;
+	width : 150px;
+	height: 40px;
+	margin-top: 100px;
+	background-color: rgba(10,7,67,1.00);
+	border: 2px solid rgba(239,0,0,1.00);
+	border-radius: 5px;
+	z-index: 200;
+	cursor : pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Bungee', cursive;
+	font-size: 22px;
+	letter-spacing: 1.5px;
+	color: rgb(246, 184, 30);
+	text-shadow: 1px 1px 0 rgba(239,0,0,1.00); 
+}
+
+.rejouer:hover{
+	transform: scale(1.1);
+}
+
+.rejouer::after{
+	content: "rejouer";
+	position : absolute;
+}
+
+footer{
+	color : rgba(175,255,228,1.00);
+	width: 100%;
+	text-align: center;
+	position: fixed;
+	bottom: 30px;
+	z-index: -2;
+}
+
+
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 1024px){
+	#computer{
+		color: transparent;
+		text-shadow: none;
+	}
+	#mobile{
+		display: block;
+		margin: -20px auto -5px auto;
+		color: rgb(246, 184, 30);
+		font-size: 20px;
+		font-weight: lighter;
+		text-align: center;
+		text-transform: uppercase;
+		text-shadow: 1px 1px 0 rgba(239,0,0,1.00);
+	}
+}
+@media screen and (max-width: 670px){
+	body{
+		margin: 0;
+	}
+	#logo{
+		width: 100vw;
+	}
+	h2{
+		margin: -20px auto 20px auto;
+		font-size: 20px;
+	}
+	#computer{
+		display: none;
+	}
+	#mobile{
+		margin: -10px 5px -5px 5px;
+		font-size: 15px;
+	}
+	#play, .gameOver, .won{
+	margin-top: 13px;
+	font-size: 20px;
+}
+	.grid{
+		width: 98vw;
+		height: 98vw;
+		margin-bottom: 40px;
+	}
+	.grid div{
+		width : 3.5vw;
+		height: 3.5vw;
+	}
+	.pac-dot {
+		border: 5px solid rgba(10,7,67,1.00);
+		border-radius: 50%;
+	}
+	.clyde, .pinky, .inky, .blinky{
+		border: none;
+	}
+	.pac-man{
+		border-radius: 50%;
+		border: none;
+	}
+	.pac-man::before, .pac-man::after{
+		width: 1.75vw;
+		height: 1.75vw;
+	}
+	.gameOver, .won{
+		width: 90vw;
+		height: 13vh;
+		padding: 5px 0;
+	}
+	.rejouer{
+		margin-top: 25px;
+		font-size: 20px;
+	}
+	footer{
+		font-size: 15px;
+		text-align: center;
+	}
+}
+
+
+
+
+
+
+
